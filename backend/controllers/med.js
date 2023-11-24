@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import Med from "../models/Med.js";
 import { StatusCodes } from "http-status-codes";
+import { BadRequestError, NotFoundError } from "../errors/index.js";
 import schedule from "node-schedule";
 import { sendReminderEmail } from "../config/send-email.js";
 
@@ -44,19 +45,123 @@ const addMed = async (req, res) => {
 };
 
 const fetchAllMeds = async (req, res) => {
-  res.send("fetchmeds");
+  // Common information for both patients and doctors
+  const commonData = {
+    userRole: req.user.role,
+    userId: req.user.userId,
+  };
+
+  const { medicationName, dosage, adherenceStatus } = req.query;
+
+  const query = { patientId: commonData.userId };
+
+  if (adherenceStatus) {
+    query.adherenceStatus = adherenceStatus;
+  }
+
+  if (dosage) {
+    query.dosage = dosage;
+  }
+
+  if (medicationName) {
+    query.medicationName = new RegExp(medicationName, "i");
+  }
+
+  if (req.user.role === "patient") {
+    // Dashboard data for patients
+    const activeMeds = await Med.find(query);
+
+    if (activeMeds.length === 0) {
+      // Handle the case of an empty dashboard
+      return res.json({
+        ...commonData,
+        msg: "No medication adherence data available.",
+      });
+    }
+
+    // Calculate percentage adherence and include other data
+    const totalMeds = activeMeds.length;
+    const takenMeds = activeMeds.filter(
+      (record) => record.adherenceStatus === "Taken"
+    ).length;
+    const missedMeds = activeMeds.filter(
+      (record) => record.adherenceStatus === "Missed"
+    ).length;
+    const percentageAdherence = (
+      totalMeds > 0 ? (takenMeds / totalMeds) * 100 : 100
+    ).toFixed(2);
+
+    return res.json({
+      status: "success",
+      msg: {
+        ...commonData,
+        totalMeds,
+        takenMeds,
+        missedMeds,
+        percentageAdherence,
+        activeMeds,
+      },
+    });
+  } else if (req.user.role === "doctor") {
+    // Dashboard data for doctors
+    const assignedPatients = await User.find({
+      assignedDoctor: req.user.userId,
+    }); //.populate("medication");
+
+    if (assignedPatients.length === 0) {
+      // Handle the case of an empty dashboard
+      return res.json({ ...commonData, message: "No assigned patients." });
+    }
+    return res.json({
+      status: "success",
+      msg: { ...commonData, assignedPatients },
+    });
+  }
+
+  res
+    .status(StatusCodes.BAD_REQUEST)
+    .json({ status: "failed", msg: "Invalid user role" });
 };
 
 const fetchMed = async (req, res) => {
-  res.send("fetchmed");
+  const { id: medicationId } = req.params;
+
+  const medication = await Med.findOne({ _id: medicationId });
+
+  if (!medication) {
+    throw new NotFoundError(`There's no medication with id: ${medicationId}`);
+  }
+  res.json({ status: "success", msg: medication });
 };
 
 const updateMed = async (req, res) => {
-  res.send("update");
+  const { id: medicationId } = req.params;
+
+  const medication = await Med.findOneAndUpdate(
+    { _id: medicationId },
+    req.body,
+    {
+      runValidators: true,
+      new: true,
+    }
+  );
+
+  if (!medication) {
+    throw new NotFoundError(`There's no medication with id: ${medicationId}`);
+  }
+  res.json({ status: "success", message: "Successfully updated" });
 };
 
 const deleteMed = async (req, res) => {
-  res.send("delete");
+  const { id: medicationId } = req.params;
+
+  const medication = await Med.findOneAndDelete({
+    _id: medicationId,
+  });
+  if (!medication) {
+    throw new NotFoundError(`There's no medication with id: ${medicationId}`);
+  }
+  res.json({ status: "success", message: "Medication deleted" });
 };
 
 export { addMed, fetchAllMeds, fetchMed, updateMed, deleteMed };

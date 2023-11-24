@@ -28,6 +28,7 @@ const loginController = async (req, res) => {
   }
 
   const passwordMatch = user.isPasswordCorrect(password);
+  // console.log(passwordMatch);
 
   if (!passwordMatch) {
     throw new BadRequestError("Password is incorrect");
