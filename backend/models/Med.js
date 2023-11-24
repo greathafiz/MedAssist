@@ -6,27 +6,40 @@ const MedSchema = new mongoose.Schema({
     ref: "User",
     required: true,
   },
-  // doctorId: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: "User",
-  // },
   medicationName: {
     type: String,
-    required: [true, "Provide name of medication"]
+    required: [true, "Provide name of medication"],
   },
-  adherenceTimes: {
-    type: [String],
-    required: [true, "Choose how often medication needs to be taken"]
+  dosage: {
+    type: String,
   },
+  frequency: {
+    type: String,
+    enum: [
+      "Every day",
+      "Specific days of the week",
+      "Every X days",
+      "Every X weeks",
+      "Every X months",
+      "Only as needed",
+    ],
+    required: true,
+  },
+  reminders: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
   adherenceStatus: {
     type: String,
-    enum: ['Taken', 'Missed'],
+    enum: ["Taken", "Missed"],
     required: true,
-    default: 'Missed'
+    default: "Missed",
   },
   stock: {
     type: Number,
-    default: 1
+    default: 1,
   },
   // When adherence record was created/updated.
   // It provides context to the adherence record by indicating when the patient marked their medication as taken or missed.
@@ -34,8 +47,8 @@ const MedSchema = new mongoose.Schema({
   // the adherenceDate would reflect that moment.
   adherenceDate: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 export default mongoose.model("Med", MedSchema);

@@ -35,7 +35,7 @@ app.use(express.json());
 
 app.use("/api/v1", authRouter);
 app.use("/api/v1", indexRouter);
-app.use("/api/v1", verifyUser, medRouter);
+app.use("/api/v1/med", verifyUser, medRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
