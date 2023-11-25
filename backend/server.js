@@ -3,7 +3,7 @@ import { fileURLToPath } from "url";
 import * as path from "path";
 import 'express-async-errors'
 import express from "express";
-import connectDB from "./config/db.js";
+import connectDB from "./utils/db.js";
 import verifyUser from "./middleware/verifyUser.js";
 
 import notFoundMiddleware from "./middleware/not-found.js";
