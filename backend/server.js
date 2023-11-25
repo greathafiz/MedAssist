@@ -3,8 +3,7 @@ import { fileURLToPath } from "url";
 import * as path from "path";
 import 'express-async-errors'
 import express from "express";
-import connectDB from "./config/db.js";
-import { indexRouter } from "./routes/index.js";
+import connectDB from "./utils/db.js";
 import verifyUser from "./middleware/verifyUser.js";
 
 import notFoundMiddleware from "./middleware/not-found.js";
@@ -34,7 +33,6 @@ app.use(express.json());
 // Routes
 
 app.use("/api/v1", authRouter);
-app.use("/api/v1", indexRouter);
 app.use("/api/v1/med", verifyUser, medRouter);
 
 app.use(notFoundMiddleware);
