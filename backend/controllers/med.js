@@ -53,7 +53,7 @@ const fetchAllMeds = async (req, res) => {
 
   const { medicationName, dosage, adherenceStatus } = req.query;
 
-  const query = { patientId: commonData.userId };
+  const query = {};
 
   if (adherenceStatus) {
     query.adherenceStatus = adherenceStatus;
@@ -67,7 +67,7 @@ const fetchAllMeds = async (req, res) => {
     query.medicationName = new RegExp(medicationName, "i");
   }
 
-  if (req.user.role === "patient") {
+  // if (req.user.role === "patient") {
     // Dashboard data for patients
     const activeMeds = await Med.find(query);
 
@@ -102,7 +102,7 @@ const fetchAllMeds = async (req, res) => {
         activeMeds,
       },
     });
-  } else if (req.user.role === "doctor") {
+  /* } else if (req.user.role === "doctor") {
     // Dashboard data for doctors
     const assignedPatients = await User.find({
       assignedDoctor: req.user.userId,
@@ -115,12 +115,12 @@ const fetchAllMeds = async (req, res) => {
     return res.json({
       status: "success",
       msg: { ...commonData, assignedPatients },
-    });
-  }
+    }); */
+  // }
 
-  res
-    .status(StatusCodes.BAD_REQUEST)
-    .json({ status: "failed", msg: "Invalid user role" });
+  // res
+  //   .status(StatusCodes.BAD_REQUEST)
+  //   .json({ status: "failed", msg: "Invalid user role" });
 };
 
 const fetchMed = async (req, res) => {

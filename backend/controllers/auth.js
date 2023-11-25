@@ -5,7 +5,7 @@ import { BadRequestError, NotFoundError } from "../errors/index.js";
 const signupController = async (req, res) => {
   const user = await User.create(req.body);
   const token = await user.generateJWT();
-  res.status(StatusCodes.CREATED).json({ status: "success", msg: "User registration successful", token });
+  res.status(StatusCodes.CREATED).json({ status: "success", msg: "User registration successful", user, token });
 };
 
 const loginController = async (req, res) => {
@@ -35,7 +35,7 @@ const loginController = async (req, res) => {
   }
 
   const token = user.generateJWT();
-  res.json({ status: "success", msg: "Login was successful", token });
+  res.json({ status: "success", msg: "Login was successful", user, token });
 };
 
 export { signupController, loginController };

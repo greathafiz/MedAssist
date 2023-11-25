@@ -32,14 +32,14 @@ const UserSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Med"
   }],
-  assignedDoctor: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    // Only required for patients
-    required: function () {
-      return this.role === "patient";
-    },
-  },
+  // assignedDoctor: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "User",
+  //   // Only required for patients
+  //   // required: function () {
+  //   //   return this.role === "patient";
+  //   // },
+  // },
 });
 
 UserSchema.method("generateJWT", function () {
