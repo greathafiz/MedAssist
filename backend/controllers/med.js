@@ -172,7 +172,7 @@ const exportReport = async (req, res) => {
   const user = await User.findById(req.user.userId);
   try {
     await generatePDF(
-      "https://github.com/bradtraversy/vue-expense-tracker",
+      process.env.REPORT_PAGE,
       process.env.PDF_PATH
     );
 
