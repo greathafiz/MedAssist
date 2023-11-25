@@ -18,6 +18,7 @@ The API is hosted at https://medassist-api.onrender.com and it supports the foll
 `GET ${BASE_URL}/api/v1/med/:id`: Get the information about a specific medication record.
 `PUT ${BASE_URL}/api/v1/med/:id`: Update a medication record.
 `DELETE ${BASE_URL}/api/v1/med/:id`: Delete a medication record.
+`GET ${BASE_URL}/api/v1/med/report`: Get Patient's Adherence Report sent to email.
 
 where BASE_URL = https://medassist-api.onrender.com
 
