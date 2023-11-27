@@ -36,7 +36,11 @@ const Signin = () => {
             setAuth({userDetails,token})
             toast.success('Success')
             setLoading(false)
-            navigate('/');
+            if(response.data.user.role === 'patient'){
+                navigate('/')
+            }else(
+                navigate('/doctor')
+            )
         }catch(err){
             setLoading(false)
             if (err.response) {
