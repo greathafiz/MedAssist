@@ -25,7 +25,7 @@ const Empty = () => {
                 const response = await axios.post('/med',
                 JSON.stringify({
                     medicationName,
-                    frequency,
+                    frequency: 'Every day',
                     reminders
                 }),
                 {

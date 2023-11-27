@@ -61,7 +61,7 @@ const Dashboard = () => {
     ):(      
       
         <>
-          {!medData.takenMeds  && !loading ? (
+          {!medData.activeMeds  && !loading ? (
             <Empty />
           ):(
             <div className='dashboard-container'>
