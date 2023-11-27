@@ -1,0 +1,76 @@
+.medication-top-container{
+    display: flex;
+   justify-content: space-between;
+   width: 100%;
+}
+
+.medication-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    gap: 1rem;
+}
+
+.medication-head{
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8.9375rem;
+}
+
+.medication-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.medication-head h4{
+    color: #0E246F;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.medication-body-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.medication-body{
+    display: flex;
+    /* height: 4.6875rem; */
+    padding: 1.5625rem 19.5625rem 1.5625rem 0.625rem;
+    align-items: center;
+    border-radius: 0.625rem;
+    background: #FFF;
+    width: 100%;
+}
+
+.medication-body-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* gap: 6.875rem; */
+    width: 100%;
+}
+
+.status,
+.drug-type{
+    color: #4F4F4F;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.medication-name{
+    display: flex;
+    align-items: flex-end;
+    gap: 0.625rem;
+}
