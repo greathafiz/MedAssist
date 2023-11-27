@@ -1,0 +1,257 @@
+.dashboard-container{
+    display: flex;
+    gap: 2rem;
+    
+}
+
+.board{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
+}
+
+.top-board{
+    max-width: 47.9375rem;
+    height: 27rem;
+    flex-shrink: 0;
+    border-radius: 0.625rem;
+    background: #FFF;
+    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top-board-head{
+    color: #00319F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+
+.analytics-container{
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 7rem;
+}
+
+.analytics{
+    display: flex;
+    align-items: flex-start;
+    gap: 3.5rem;
+}
+
+.analytics-data{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3125rem;
+}
+
+.analytics-data-status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.analytics-data-status h5{
+    color: #4F4F4F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.analytics-data-score{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 0.125rem;
+}
+
+.score-1{
+    color: rgba(0, 0, 0, 0.80);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.score-total{
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.analytics-sum{
+    color: #7E7E7E;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.adherence-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.circle{
+    display: flex;
+    width: 9rem;
+    height: 9rem;
+    /* padding: 2.8125rem 3rem 2.8125rem 3.0625rem; */
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    border: 6px solid #F10B0B;
+}
+
+.circle-text{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 0.125rem;
+}
+
+.number{
+    color: rgba(0, 0, 0, 0.80);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.75rem;
+    font-weight: 500;
+}
+
+.percent{
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.adherence-container h4{
+    color: #4F4F4F;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.report-cta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    /* margin: 0 auto; */
+}
+
+.report-cta p{
+    color: #407BFF;
+    font-family: Montserrat;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.bottom-board{
+    display: flex;
+    gap: 2.9375rem;
+}
+
+.active-board,
+.stock-board{
+    display: flex;
+    height: 21.375rem;
+    padding: 2.4375rem 7.1875rem 2.4375rem 1.5625rem;
+    /* padding: 2.4375rem 7.1875rem 14.625rem 1.5625rem; */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    border-radius: 0.625rem;
+    background: #FFF;
+}
+
+.active-board h4,
+.stock-board h4{
+    color: #00319F;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.list-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.list{
+    display: flex;
+    align-items: flex-end;
+    gap: 0.625rem;
+}
+
+.list p{
+    color: #4F4F4F;
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-family: Montserrat;
+}
+
+.list p span{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    margin: 0 auto;
+}
+
+.empty h4{
+    color: #4F4F4F;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.empty-inner-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.empty-inner-text p{
+    color: #000;
+    font-family: Montserrat;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.empty-inner-cta{
+    display: flex;
+    padding: 1.25rem 3.125rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-radius: 0.625rem;
+    background: #121F4B;
+}

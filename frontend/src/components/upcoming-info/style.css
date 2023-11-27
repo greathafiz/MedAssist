@@ -1,0 +1,121 @@
+.top-container{
+    /* width: 17.875rem; */
+    height: 100vh;
+    background: #CDCDCD;
+    /* padding: 1rem; */
+    /* padding-top: 1rem; */
+    padding-left: 1rem;
+    padding-top: 3rem;
+    /* padding-right: 1rem; */
+    /* margin-top: 2rem; */
+    max-width: 17.875rem;
+}
+
+
+.top-container h4{
+    color: #4F4F4F;
+    font-family: Montserrat;
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.reminder{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.reminder h5{
+    color: #4F4F4F;
+    font-family: Montserrat;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.reminder p{
+    color: #4F4F4F;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.drug{
+    display: inline-flex;
+    padding: 0.8125rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.625rem;
+    background: #FFF;
+    margin-bottom: 3rem;
+
+}
+
+.drug-inner{
+    display: flex;
+    align-items: flex-end;
+    gap: 0.6rem;
+}
+
+.drug-inner p{
+    color: #4F4F4F;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.drug-inner p span{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.next-appointment{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.next-appointment h5{
+    color: #4F4F4F;
+    font-family: Montserrat;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.next-appointment p{
+    color: #4F4F4F;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 14.0625rem;
+}
+
+.cta{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.cta p{
+    color: #121F4B;
+    font-family: Montserrat;
+    font-size: 1.0625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
