@@ -19,7 +19,11 @@ const Navbar = () => {
           <h3>Calendar</h3>
         ): location.pathname === '/report' ? (
           <h3>Report</h3>
-        ): <></>}
+        ): location.pathname === '/doctor' ? (
+          <h3>Patient Data</h3>
+        ): location.pathname === '/doctor-report' ? (
+          <h3>Report</h3>
+        ):<></>}
         
 
         <div className="profile">
