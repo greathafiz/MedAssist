@@ -13,6 +13,7 @@ import helmet from "helmet";
 import cors from "cors";
 import { authRouter } from "./routes/auth.js";
 import { medRouter } from "./routes/med.js";
+import { patientsRouter } from "./routes/user.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,9 +31,11 @@ app.use(express.json());
 
 // Other code goes here...
 
+
 // Routes
 
 app.use("/api/v1", authRouter);
+app.use('/api/v1/patients', verifyUser, patientsRouter)
 app.use("/api/v1/med", verifyUser, medRouter);
 
 app.use(notFoundMiddleware);

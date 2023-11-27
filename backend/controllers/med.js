@@ -57,7 +57,11 @@ const fetchAllMeds = async (req, res) => {
 
   const { medicationName, dosage, adherenceStatus } = req.query;
 
-  const query = {}; // will have to also filter by 'patientId: req.user.userId' if there's a patient - doctor mapping
+  let query = {}
+
+  if (req.user.role === 'patient') {
+    query = {patientId: req.user.userId}; // will have to also filter by 'patientId: req.user.userId' if there's a patient - doctor mapping
+  }
 
   if (adherenceStatus) {
     query.adherenceStatus = adherenceStatus;
