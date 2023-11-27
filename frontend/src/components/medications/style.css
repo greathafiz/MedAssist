@@ -1,3 +1,6 @@
+.container{
+    padding: 1rem;
+}
 .medication-top-container{
     display: flex;
    justify-content: space-between;

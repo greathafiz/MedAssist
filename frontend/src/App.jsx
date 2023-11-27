@@ -8,26 +8,34 @@ import PatientReport from './components/patient-report/patient-report';
 import Sidebar from './components/sidebar/sidebar';
 import Signin from './components/signin/signin';
 import Signup from './components/signup/signup';
+import Doctor from './components/doctor/doctor';
+import Report from './components/doctor-report/report';
+import DocSidebar from './components/doc-sidebar/sidebar';
 // import RequireAuth from './components/requireAuth';
 
 function App() {
   const location = useLocation();
   const showSidebarNavbarRoutes = ['/', '/medications', '/calendar', '/report'];
+  const showDocSidebarNavbarRoutes = ['/doctor', '/doctor-report'];
 
   const shouldShowSidebarNavbar = showSidebarNavbarRoutes.includes(location.pathname);
+  const shouldShowDocSidebarNavbar = showDocSidebarNavbarRoutes.includes(location.pathname);
 
   return (
     <>
       <div className="app-container">
         {shouldShowSidebarNavbar && <Sidebar />}
+        {shouldShowDocSidebarNavbar && <DocSidebar />}
         <div className="app-main">
-          {shouldShowSidebarNavbar && <Navbar />}
+          {shouldShowSidebarNavbar || shouldShowDocSidebarNavbar && <Navbar />}
           <Routes>
             {/* <Route element={<RequireAuth />}> */}
               <Route path="/" element={<Dashboard />} />
               <Route path="/medications" element={<Medications />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/report" element={<PatientReport />} />
+              <Route path="/doctor" element={<Doctor />} />
+              <Route path="/doctor-report" element={<Report />} />
             {/* </Route> */}
           </Routes>
         </div>
