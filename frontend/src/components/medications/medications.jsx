@@ -63,10 +63,10 @@ const Medications = () => {
         </div>
 
         {medData.length === 0 ?(
-          <h4>No data available</h4>
+          <h4 style={{display: 'flex',alignItems: 'center',justifyContent: 'center',fontFamily: 'Montserrat',height: '100%'}}>No data available</h4>
         ):(
           <div className="medication-body-container">
-            {medData?.activeMeds.map((item)=>(
+            {medData?.activeMeds?.map((item)=>(
               <div key={item._id} className="medication-body">
                 <div className="medication-body-inner">
                   <div className="medication-name">
